@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+
+<body>
+    <header th:insert="fragments.html :: nav"></header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mt-4 mx-auto">
+                    <div class="card-header text-center">
+                        <i class="fa fa-search"></i> Found Job Ads
+                    </div>
+                    <div class="card-block" style="padding: 24px;">
+                        <form name="s" th:action="@{/management/search}" th:object="${jobad}" method="post">
+                            <fieldset>
+                                <div class="form-row">
+                                    <div class="col-md-5 mb-3">
+                                        <label for="validationDefault01">Techno</label>
+                                        <input type="text" class="form-control" th:field="*{techno}"
+                                            id="validationDefault01" name="tech" placeholder="ex: Java" required>
+                                    </div>
+                                    <div class="col-md-5 mb-3">
+                                        <label for="validationDefault02">Location</label>
+                                        <input type="text" class="form-control" th:field="*{location}"
+                                            id="validationDefault02" name="loca" placeholder="ex: London" required>
+                                    </div>
+
+                                    <div class="col-md-2 mb-3">
+
+                                        <div class="form-actions text-center">
+                                            <button type="submit" class="form-control btn btn-success"><i
+                                                    class="fa fa-search mr-1"></i>Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <span th:if="${noResult}">0 result</span>
+                    </div>
+                </div>
+
+                <div class="card mt-4" th:unless="${#lists.isEmpty(jobAds)}">
+                    <div class="card-header text-center">
+                        <i class="fa fa-search"></i> Result
+                    </div>
+                    <div class="card-block" style="padding: 24px;">
+
+
+                        <div th:each="job: ${jobAds}" class="card mt-2">
+                            <div class="card-header">
+                                <span th:text="${job.title}"></span>
+                                <a th:href="@{~/management/saveJobAd/{id}(id=${job.githubId})}">Add this job ad to actuality</a>
+                            </div>
+
+                            <div class="card-body">
+                                <span th:text="${job.company}"></span><span> from </span><span
+                                    th:text="${job.location}"></span>
+
+                                    <span th:utext="${job.description}"></span>
+                                <span th:utext="${job.howToApply}"></span>
+
+                            </div>
+                        </div>
+                        </table>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

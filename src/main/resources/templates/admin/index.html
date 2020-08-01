@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+
+<body>
+    <header th:insert="fragments.html :: nav"></header>
+    <!-- Page content goes here -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card mt-4 mx-auto">
+                    <div class="card-header text-center ">
+                        <i class="fa fa-user mr-1"></i><span>Users</span>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Roles</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="user : ${users}">
+                                        <td th:text="${user.username}"></td>
+                                        <td th:text="${user.roles}"></td>
+                                        <td>
+                                            <a class="text-light btn btn-danger btn-sm" th:href="@{~/admin/downgradeToUser/{id}(id=${user.id})}" th:if="${user.roles == 'MANAGEMENT'}"><i class="fa fa-arrow-down mr-1"></i>Downgrade</a>
+                                            <a class="text-light btn btn-success btn-sm" th:href="@{~/admin/upgradeToManagement/{id}(id=${user.id})}" th:if="${user.roles == 'USER'}"><i class="fa fa-arrow-up mr-1"></i>Upgrade</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

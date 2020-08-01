@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<!-- Page content goes here -->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card text-center mt-4 mx-auto">
+                <div class="card-header">
+                    <i class="fa fa-user mr-1"></i><span>Profile</span>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Username : <span sec:authentication="name"></span>
+                    </p>
+                    <p>
+                        Roles : <span sec:authentication="principal.authorities"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

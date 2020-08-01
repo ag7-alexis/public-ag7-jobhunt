@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles"></head>
+
+<body>
+    <header th:insert="fragments.html :: nav"></header>
+    <!-- Page content goes here -->
+    <div class="container">
+        <div class="card mt-4" th:unless="${#lists.isEmpty(jobAds)}">
+        <div class="card-header text-center">
+            <span>Actuality</span>
+        </div>
+        <div class="card-block" style="padding: 24px;">
+
+
+            <div th:each="job: ${jobAds}" class="card mt-2">
+                <div class="card-header">
+                    <span th:text="${job.title}"></span>
+                </div>
+
+                <div class="card-body">
+                    <span th:text="${job.company}"></span><span> from </span><span
+                        th:text="${job.location}"></span>
+
+                        <span th:utext="${job.description}"></span>
+                    <span th:utext="${job.howToApply}"></span>
+
+                </div>
+            </div>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <header th:insert="fragments.html :: nav"></header>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card mt-4 mx-auto">
+                    <div class="card-header text-center">
+                        <i class="fa fa-user"></i> Please Sign Up
+                    </div>
+                    <div class="card-block" style="padding: 24px;">
+                        <form name="f" th:action="@{/signup}" th:object="${user}" method="post">
+                            <fieldset>
+                                <div th:if="${param.error}" class="alert alert-danger">
+                                    Username allready use
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtUsername">Username</label>
+                                    <input type="text" class="form-control" id="txtUsername" th:field="*{username}"
+                                        name="txtUsername" placeholder="Username" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtPassword">Password</label>
+                                    <input type="password" class="form-control" id="txtPassword" th:field="*{password}"
+                                        name="txtPassword" placeholder="Password" required>
+                                </div>
+
+                                <div class="form-actions text-center" style="margin-top: 12px;">
+                                    <button type="submit" class="btn btn-success">Sign Up</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <p>You allready have an account : <a th:href="@{~/login}">Login</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

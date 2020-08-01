@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:insert="fragments.html :: headerfiles">
+
+</head>
+
+
+
+<body>
+    <style>
+        @media (max-width: 450px) {
+            .home-title {
+                font-size: 3rem !important;
+            }
+        }
+    </style>
+    <header th:insert="fragments.html :: nav"></header>
+    <div class="container">
+
+        <div class="row pt-5 mb-5">
+            <div class="text-center col">
+                <h1 class="text-primary display-3 home-title font-weight-bold">AG7-JobHunt</h1>
+                <p class="h5 mt-4">We are looking for job offers for developer, you just have to apply !</p>
+                <a class="btn btn-primary font-weight-bold mt-4" style="border-radius: 32px; font-size: 1.7rem;"
+                    th:href="@{~/userloggedin/index}">
+                    Find your next Job !
+                </a>
+            </div>
+        </div>
+
+        <div class="row pt-5 mb-5">
+            <div class="col">
+                <div class="card shadow">
+                    <h2 class="bg-success text-light card-header text-center">Developer</h2>
+                    <div class="card-body">
+                        <div class="row mb-2">
+                            <div class="col-sm-8  border-bottom">
+                                <h5>GUAY Alexis</h5>
+                                <p>20 years old student developer, holder of a BTS SIO option
+                                    SLAM and currently in MIW Professional License (2020/2021).</p>
+                            </div>
+                            <div class="col-sm-4  border-bottom">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        LinkedIn :
+                                        <a href="https://www.linkedin.com/in/guayalexis/" target="_blank">Guay
+                                            Alexis</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Mail :
+                                        <a href="mailto:guay.alexis7@gmail.com">guay.alexis7@gmail.com</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        GitHub :
+                                        <a href="https://github.com/ag7-alexis" target="_blank">ag7-alexis</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8 border-right">
+                                <h5 class="text-center font-weight-bold">Application</h5>
+                                <p>
+                                    This application is made in <b>Java 11</b> with the FrameWork <b>Spring</b>.
+                                    I'm using <b>Spring MVC</b> and <b>SpringSecurity</b>.
+                                    Views are made with <b>Thymeleaf</b> and <b>Bootstrap</b>.
+                                    I made this application to train my <b>SpringSecurity</b> skills with the gestion of
+                                    roles.
+                                    And i have add the <a target="_blank" href="https://jobs.github.com/api">github job
+                                        api</a> to have content.
+                                </p>
+
+
+                                <a href="https://github.com/ag7-alexis/AG7-FrontEnd" target="_blank">
+                                    Github of the application
+                                </a>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <h5 class="text-center font-weight-bold">Database</h5>
+                                <p>
+                                    I am using a <b>PostgreSQL</b> database,
+                                    data persistence is assured by <b>JPA</b> and <b>Hibernate</b>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
