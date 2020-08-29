@@ -4,7 +4,7 @@
 
 <p>
   Application web qui permet de gérer des offres d'emploi pour les développeurs. Les utilisateurs peuvent avoir différents 
-  rôles qui leur attribueront des permissions spécifique, par exemple un manageur pourra ajouter des offres d'emploi lisible 
+  rôles qui leur attribueront des permissions spécifique, par exemple un manager pourra ajouter des offres d'emploi lisible 
   pour les utilisateurs inscrits.
 </p>
 
